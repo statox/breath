@@ -4,6 +4,8 @@ function PolygonAngle(x, y, maxAngle) {
     this.maxAngle = PI;
 
     this.draw = (percentage) => {
+        backgroundColorChange(percentage);
+
         const x = width / 2;
         const y = height / 2;
 

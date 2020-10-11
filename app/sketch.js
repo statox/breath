@@ -1,9 +1,12 @@
 let stateComputer;
+let fullscreenImage;
+let fullscreenButton;
 let appSettings = {
     action: '',
     percentage: 0,
     countDown: 0,
-    playing: false
+    playing: false,
+    fullscreen: false
 };
 let animations;
 let animation;
@@ -17,6 +20,10 @@ function setup() {
     // Create the canvas and put it in its div
     const myCanvas = createCanvas(400, 400);
     myCanvas.parent('canvasDiv');
+
+    fullscreenButton = createImg('../assets/fullscreen.png', 'Toggle fullscreen.');
+    fullscreenButton.mousePressed(toggleFullscreen);
+
     customResizeCanvas();
 
     stateComputer = new StateComputer();
