@@ -1,6 +1,6 @@
-# P5JS VueJS Boilerplate
+# Breath
 
-This is just a boilerplate for me to use to bootstrap some projects
+A simple guided breathing exercise.
 
 ## Dev
 

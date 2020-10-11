@@ -1,5 +1,21 @@
-function initInterface() {
-    document.getElementById('myButton').addEventListener('click', (e) => {
-        appSettings.switcher = !appSettings.switcher;
-    });
+function keyPressed() {
+    if (keyCode === LEFT_ARROW) {
+        switchAnimation(false);
+    }
+
+    if (keyCode === RIGHT_ARROW) {
+        switchAnimation(true);
+    }
+
+    // SPACE
+    if (keyCode === 32) {
+        start();
+    }
+}
+
+function customResizeCanvas() {
+    resizeCanvas(windowWidth, windowHeight);
+}
+function windowResized() {
+    customResizeCanvas();
 }

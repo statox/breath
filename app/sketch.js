@@ -1,12 +1,12 @@
+let stateComputer;
 let appSettings = {
-    counter: 0,
-    switcher: false
+    action: '',
+    percentage: 0,
+    countDown: 0,
+    playing: false
 };
-
-function customResizeCanvas() {
-    const dim = Math.min(windowHeight, windowWidth) * 0.9;
-    resizeCanvas(dim, dim);
-}
+let animations;
+let animation;
 
 function setup() {
     app = new Vue({
@@ -16,19 +16,40 @@ function setup() {
 
     // Create the canvas and put it in its div
     const myCanvas = createCanvas(400, 400);
-    // customResizeCanvas();
     myCanvas.parent('canvasDiv');
+    customResizeCanvas();
 
-    initInterface();
+    stateComputer = new StateComputer();
+
+    animations = [new SimpleCircle(), new HalfCirclePolygon(), new PolygonAngle()];
+    animationsIndex = 0;
+    animation = animations[animationsIndex];
 }
 
 function draw() {
-    let col = [100, 100, 100];
-    if (appSettings.switcher) {
-        col = [200, 200, 200];
+    const {action, percentage, countDown, playing} = stateComputer.getUpdate();
+    appSettings.action = action;
+    appSettings.percentage = percentage;
+    appSettings.countDown = countDown;
+    appSettings.playing = playing;
+
+    background(100);
+    animation.draw(percentage);
+}
+
+function start() {
+    stateComputer.startSession();
+}
+
+function switchAnimation(clockwise) {
+    if (clockwise) {
+        animationsIndex = (animationsIndex + 1) % animations.length;
+        animation = animations[animationsIndex];
+    } else {
+        animationsIndex = (animationsIndex - 1) % animations.length;
+        if (animationsIndex < 0) {
+            animationsIndex = animations.length - 1;
+        }
+        animation = animations[animationsIndex];
     }
-    appSettings.counter = (appSettings.counter + 1) % width;
-    background(...col);
-    fill('blue');
-    ellipse(appSettings.counter, height / 2, 50);
 }
