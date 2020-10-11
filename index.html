@@ -32,7 +32,7 @@
 
     <body>
         <div class="content-container" id="appDiv">
-            <div v-if="!fullscreen">
+            <div id="settings" v-if="!fullscreen">
                 <button id="prevAnimationBtn" v-on:click="switchAnimation(false);">Prev. animation</button>
                 <button id="startBtn" v-on:click="start()">Start</button>
                 <button id="nextAnimationBtn" v-on:click="switchAnimation(true);">Next animation</button>

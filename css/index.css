@@ -9,3 +9,7 @@ div#appDiv button.active {
 div#appDiv button.inactive {
     background: #d37676;
 }
+
+#settings {
+    text-align: center;
+}
