@@ -1,39 +1,43 @@
-class StateComputer {
-    constructor() {
-        this.sessionDuration = 30 * 1000; // in milliseconds
-        this.playing = false;
+/*
+ * Originally I created this class using the keyword `class` hoping to do things the right way.
+ * But it turns out that it doesn't seem to work properly with Safari.
+ * I suspect that the issue comes from hoisting which might differ in Safari.
+ * I'll need to investigate more but in the meantime I'll keep it this way
+ */
+function StateComputer() {
+    this.sessionDuration = 30 * 1000; // in milliseconds
+    this.playing = false;
 
-        this.currentInterval;
-        this.remainingMs;
-        this.lastMark;
-        this.currentStateIndex;
-        this.sessionStartTime;
-        this.states = [
-            // durations are in milliseconds
-            {
-                action: 'inhale',
-                text: 'inhale',
-                duration: 3000
-            },
-            {
-                action: 'inhale pause',
-                text: 'inhale',
-                duration: 1000
-            },
-            {
-                action: 'exhale',
-                text: 'exhale',
-                duration: 5000
-            },
-            {
-                action: 'exhale pause',
-                text: 'exhale',
-                duration: 1000
-            }
-        ];
-    }
+    this.currentInterval;
+    this.remainingMs;
+    this.lastMark;
+    this.currentStateIndex;
+    this.sessionStartTime;
+    this.states = [
+        // durations are in milliseconds
+        {
+            action: 'inhale',
+            text: 'inhale',
+            duration: 3000
+        },
+        {
+            action: 'inhale pause',
+            text: 'inhale',
+            duration: 1000
+        },
+        {
+            action: 'exhale',
+            text: 'exhale',
+            duration: 5000
+        },
+        {
+            action: 'exhale pause',
+            text: 'exhale',
+            duration: 1000
+        }
+    ];
 
-    startSession = () => {
+    this.startSession = () => {
         if (this.currentInterval) {
             clearInterval(this.currentInterval);
         }
@@ -43,7 +47,7 @@ class StateComputer {
         this.updateState();
     };
 
-    updateState = () => {
+    this.updateState = () => {
         this.currentStateIndex = (this.currentStateIndex + 1) % this.states.length || 0;
         this.lastMark = millis();
         const timeout = this.states[this.currentStateIndex].duration;
@@ -57,7 +61,7 @@ class StateComputer {
         }
     };
 
-    getUpdate = () => {
+    this.getUpdate = () => {
         return {
             action: this.getCurrentAction(),
             percentage: this.getCurrentPercentage(),
@@ -66,7 +70,7 @@ class StateComputer {
         };
     };
 
-    getRemainingTime = () => {
+    this.getRemainingTime = () => {
         if (!this.playing) {
             return -1;
         }
@@ -77,7 +81,7 @@ class StateComputer {
         return parseInt(this.remainingMs / 1000);
     };
 
-    getCurrentPercentage = () => {
+    this.getCurrentPercentage = () => {
         if (!this.playing) {
             return -1;
         }
@@ -103,7 +107,7 @@ class StateComputer {
         }
     };
 
-    getCurrentAction = () => {
+    this.getCurrentAction = () => {
         if (!this.playing) {
             return 'N.A';
         }
