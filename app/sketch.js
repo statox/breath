@@ -28,7 +28,17 @@ function setup() {
 
     stateComputer = new StateComputer();
 
-    animations = [new WavesCircle(), new Waves(), new SimpleCircle(), new HalfCirclePolygon(), new PolygonAngle()];
+    animations = [
+        new CirclesCircles(),
+        new WavesCircle(),
+        new Waves(),
+        new TriangleWheel(),
+        new Droplet(),
+        new SimpleCircleAlpha(),
+        new SimpleCircle(),
+        new HalfCirclePolygon(),
+        new PolygonAngle()
+    ];
     animationsIndex = 0;
     animation = animations[animationsIndex];
 }
@@ -40,8 +50,11 @@ function draw() {
     appSettings.countDown = countDown;
     appSettings.playing = playing;
 
-    background(100);
+    background(0);
+    push();
     animation.draw(percentage);
+    pop();
+    drawCountDown(playing, countDown);
 }
 
 function start() {

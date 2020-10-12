@@ -16,8 +16,8 @@ function Waves() {
             beginShape();
             for (let x = -100; x < width + 11; x += 20) {
                 const n = noise(x * 0.001, i * 0.01, frameCount * 0.01);
-                const noff = map(percentage, 100, 0, 200, height);
-                const y = map(n, 0.1, 1, noff, height);
+                const noff = map(percentage, 100, 0, 0, height);
+                const y = map(n, 0, 1, noff, height);
                 vertex(x, y);
             }
             endShape();

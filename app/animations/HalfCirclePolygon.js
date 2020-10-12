@@ -6,10 +6,11 @@ function HalfCirclePolygon(x, y) {
         this.minL = Math.min(width, height) * 0.3;
         this.maxL = Math.min(width, height) * 0.8;
 
-        backgroundColorChange(percentage);
-        fill('rgba(100, 150, 100, 0.4)');
+        background(0);
+        stroke(150);
+        fill(125);
         const x = width / 2;
-        const y = height * 0.95;
+        const y = height * 0.05;
 
         const r = map(percentage, 0, 100, this.minL, this.maxL);
         const nbVertexes = 13;
@@ -20,7 +21,7 @@ function HalfCirclePolygon(x, y) {
 
         for (let i = 0; i <= nbVertexes; i++) {
             vertexes.push(v.copy());
-            v.rotate(PI / nbVertexes);
+            v.rotate(-PI / nbVertexes);
         }
         vertexes.push(new p5.Vector(0, 0));
         vertexes.push(vertexes[0].copy());

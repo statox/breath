@@ -5,8 +5,9 @@ function PolygonAngle(x, y, maxAngle) {
 
     this.draw = (percentage) => {
         this.mag = (Math.min(width, height) * 0.8) / 2;
-        backgroundColorChange(percentage);
-        fill('rgba(100, 150, 100, 0.4)');
+        background(0);
+        stroke(150);
+        fill(125);
 
         const x = width / 2;
         const y = height / 2;
