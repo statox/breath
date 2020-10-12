@@ -23,6 +23,8 @@ function SinusoideFlower() {
         stroke(200);
         push();
         translate(width / 2, height / 2);
+        const n = noise(frameCount * 0.01);
+        const yNoise = map(n, 0, 1, -25, 25);
         for (let i = 0; i < this.points.length; i++) {
             const v = this.points[i];
             rotate((2 * PI) / this.nbPoints);
@@ -35,7 +37,7 @@ function SinusoideFlower() {
                 const amplitude = map(x, 0, this.nbX, 0.5, 10);
                 const normX = map(x, 0, this.nbX, 0, 1);
                 const cosX = Math.cos(frequency * x) * amplitude;
-                const screenY = map(cosX, 0, 1, -10, 10);
+                const screenY = map(cosX, 0, 1, -10, 10) + yNoise;
 
                 const paint = map(x, 0, this.nbX, 200, 100);
                 stroke(paint);
@@ -51,7 +53,7 @@ function SinusoideFlower() {
                 const amplitude = map(x, 0, this.nbX, 0.5, 10);
                 const normX = map(x, 0, this.nbX, 0, 1);
                 const cosX = -Math.cos(frequency * x) * amplitude;
-                const screenY = map(cosX, 0, 1, -10, 10);
+                const screenY = map(cosX, 0, 1, -10, 10) + yNoise;
 
                 const paint = map(x, 0, this.nbX, 200, 100);
                 stroke(paint);
