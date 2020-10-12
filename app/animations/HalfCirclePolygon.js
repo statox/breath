@@ -3,13 +3,16 @@ function HalfCirclePolygon(x, y) {
     this.maxL = 200;
 
     this.draw = (percentage) => {
+        this.minL = Math.min(width, height) * 0.3;
+        this.maxL = Math.min(width, height) * 0.8;
+
         backgroundColorChange(percentage);
         fill('rgba(100, 150, 100, 0.4)');
         const x = width / 2;
-        const y = height / 2;
+        const y = height * 0.95;
 
         const r = map(percentage, 0, 100, this.minL, this.maxL);
-        const nbVertexes = 10;
+        const nbVertexes = 13;
 
         const vertexes = [];
         const v = new p5.Vector(-10, 0);
