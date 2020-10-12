@@ -30,9 +30,12 @@ function setup() {
     stateComputer = new StateComputer();
 
     animations = [
+        new SinusoideFlower(),
+        new Sinusoide1(),
         new CirclesCircles(),
         new WavesCircle(),
         new Waves(),
+        new Whirlpool(),
         new TriangleWheel(),
         new Droplet(),
         new SimpleCircleAlpha(),
