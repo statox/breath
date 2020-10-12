@@ -1,4 +1,5 @@
 function HalfCirclePolygon(x, y) {
+    this.name = 'Half Circle Polygon';
     this.minL = 20;
     this.maxL = 200;
 

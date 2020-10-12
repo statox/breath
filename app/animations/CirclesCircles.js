@@ -1,4 +1,5 @@
 function CirclesCircles() {
+    this.name = 'Rosace';
     this.minR;
     this.maxR;
     this.nbDots = 5;

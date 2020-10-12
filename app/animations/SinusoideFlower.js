@@ -1,4 +1,5 @@
 function SinusoideFlower() {
+    this.name = 'Sinusoidal Flower';
     this.minX;
     this.maxX;
     this.nbX;

@@ -1,4 +1,5 @@
 function SimpleCircle() {
+    this.name = 'Simple Circle';
     this.minR = 10;
     this.maxR = 200;
     this.draw = (percentage) => {

@@ -1,3 +1,13 @@
+function drawAnimationName(name) {
+    const {playing} = stateComputer;
+    if (playing) {
+        return;
+    }
+    fill(155);
+    text(name, width * 0.5, height * 0.9);
+    noFill();
+}
+
 function drawCountDown(playing, countDown) {
     const duration = stateComputer.sessionDuration / 1000;
     const minDim = Math.min(width, height);

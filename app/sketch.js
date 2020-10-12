@@ -62,6 +62,7 @@ function draw() {
     animation.draw(percentage);
     pop();
     drawCountDown(playing, countDown);
+    drawAnimationName(animation.name);
 }
 
 function start() {

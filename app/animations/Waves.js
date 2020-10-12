@@ -1,4 +1,5 @@
 function Waves() {
+    this.name = 'Inspired';
     this.ranges = 100;
     /*
      * Largely inspired from Clarke Cribb on here:

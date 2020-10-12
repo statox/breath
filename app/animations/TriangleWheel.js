@@ -1,4 +1,5 @@
 function TriangleWheel() {
+    this.name = 'Angulous triangle';
     this.minR;
     this.maxR;
     this.nbPoints;

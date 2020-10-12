@@ -1,4 +1,5 @@
 function PolygonAngle(x, y, maxAngle) {
+    this.name = 'Souflet';
     this.minL = 20;
     this.maxL = 200;
     this.maxAngle = 2 * PI;

@@ -1,4 +1,5 @@
 function Sinusoide1() {
+    this.name = 'Eyelashes';
     this.minX;
     this.maxX;
     this.nbX;

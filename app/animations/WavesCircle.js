@@ -1,4 +1,5 @@
 function WavesCircle() {
+    this.name = 'Breathing Black Hole';
     this.minR = 10;
     this.maxR = 200;
     this.minOff = 2;

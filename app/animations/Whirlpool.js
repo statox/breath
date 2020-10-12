@@ -1,4 +1,5 @@
 function Whirlpool() {
+    this.name = 'Whirlpool';
     this.minR;
     this.maxR;
     this.nbPoints;

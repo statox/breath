@@ -1,4 +1,5 @@
 function Droplet() {
+    this.name = 'Droplet';
     this.minR;
     this.maxR;
     this.minNoise;

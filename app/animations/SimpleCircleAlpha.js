@@ -1,4 +1,5 @@
 function SimpleCircleAlpha() {
+    this.name = 'Simple Circle Alpha';
     this.minR = 10;
     this.maxR = 200;
     this.draw = (percentage) => {
