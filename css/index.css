@@ -2,14 +2,14 @@ body {
     background-color: #000000;
 }
 
-div#appDiv button.active {
-    background: #38b57e;
-}
-
-div#appDiv button.inactive {
-    background: #d37676;
-}
-
 #settings {
     text-align: center;
+}
+
+#settings button {
+    background: #000000;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1rem;
 }
