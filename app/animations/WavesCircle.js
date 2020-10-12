@@ -1,14 +1,15 @@
 function WavesCircle() {
     this.minR = 10;
     this.maxR = 200;
-    this.minOff = 1;
+    this.minOff = 2;
     this.maxOff = 3;
+    this.nbPoints = 47;
     this.points = [new p5.Vector(0, 1)];
     this.points[0].setMag(50);
     this.range = 50;
 
-    for (let i = 1; i < 359; i++) {
-        const v = this.points[i - 1].copy().rotate(PI / 180);
+    for (let i = 1; i < this.nbPoints; i++) {
+        const v = this.points[i - 1].copy().rotate((2 * PI) / this.nbPoints);
         this.points.push(v);
     }
 
@@ -37,7 +38,7 @@ function WavesCircle() {
 
                 const baseMag = map(percentage, 0, 100, this.minR, this.maxR);
 
-                const n = noise(v.x * 0.05, v.y * 0.05, frameCount * 0.005);
+                const n = noise(v.x * 0.05, v.y * 0.05, frameCount * 0.01);
                 const noiseMag = map(n, 0, 1, this.minOff * r, this.maxOff * r);
 
                 v.setMag(baseMag + noiseMag);
