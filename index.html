@@ -8,15 +8,11 @@
     <title>Breath</title>
     <meta name="description" content="A guided breathing exercise">
 
-    <!-- newcss framework, lightweight and elegant css framework -->
-    <!--
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/open-fonts@1.1.1/fonts/inter.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
-        -->
-
     <!-- Custom css -->
     <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/flaticon/font/flaticon.css">
+
+    <!-- Font awesome -->
+    <script src="https://kit.fontawesome.com/cc32401bee.js" crossorigin="anonymous"></script>
 
     <!-- Dependencies -->
     <!-- <script async defer src="https://api.newcss.net/latest.js"></script> -->
@@ -46,11 +42,15 @@
 <body>
     <div class="content-container" id="appDiv">
         <div id="settings" v-if="!fullscreen">
-            <button id="prevAnimationBtn" v-on:click="switchAnimation(false);"><span
-                    class="flaticon-sketched-left-arrow"></span></button>
-            <button id="startBtn" v-on:click="start()"><span class="flaticon-music-player-play-button"></span></button>
-            <button id="nextAnimationBtn" v-on:click="switchAnimation(true);"><span
-                    class="flaticon-sketched-right-arrow"></span></button>
+            <button id="prevAnimationBtn" v-on:click="switchAnimation(false);">
+                <i class="fas fa-arrow-alt-circle-left"></i>
+            </button>
+            <button id="startBtn" v-on:click="start()">
+                <i class="fas fa-play"></i>
+            </button>
+            <button id="nextAnimationBtn" v-on:click="switchAnimation(true);">
+                <i class="fas fa-arrow-alt-circle-right"></i>
+            </button>
         </div>
         <div v-if="!playing">
             <form id="time-setting">
