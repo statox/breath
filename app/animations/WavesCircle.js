@@ -39,7 +39,7 @@ function WavesCircle() {
 
                 const baseMag = map(percentage, 0, 100, this.minR, this.maxR);
 
-                const n = noise(v.x * 0.05, v.y * 0.05, frameCount * 0.01);
+                const n = noise(10000 + v.x * 0.05, 10000 + v.y * 0.05, frameCount * 0.01);
                 const noiseMag = map(n, 0, 1, this.minOff * r, this.maxOff * r);
 
                 v.setMag(baseMag + noiseMag);
