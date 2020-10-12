@@ -16,11 +16,12 @@
 
     <!-- Custom css -->
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/flaticon/font/flaticon.css">
 
     <!-- Dependencies -->
     <!-- <script async defer src="https://api.newcss.net/latest.js"></script> -->
     <script defer src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
     <!-- App -->
     <script defer src="app/sketch.js"></script>
     <script defer src="app/States.js"></script>
@@ -31,14 +32,30 @@
     <script defer src="app/animations/SimpleCircle.js"></script>
     <script defer src="app/animations/HalfCirclePolygon.js"></script>
     <script defer src="app/animations/PolygonAngle.js"></script>
+    <script defer src="app/animations/CirclesCircles.js"></script>
+    <script defer src="app/animations/SimpleCircleAlpha.js"></script>
+    <script defer src="app/animations/Droplet.js"></script>
+    <script defer src="app/animations/TriangleWheel.js"></script>
 </head>
 
 <body>
     <div class="content-container" id="appDiv">
         <div id="settings" v-if="!fullscreen">
-            <button id="prevAnimationBtn" v-on:click="switchAnimation(false);">Prev. animation</button>
-            <button id="startBtn" v-on:click="start()">Start</button>
-            <button id="nextAnimationBtn" v-on:click="switchAnimation(true);">Next animation</button>
+            <button id="prevAnimationBtn" v-on:click="switchAnimation(false);"><span
+                    class="flaticon-sketched-left-arrow"></span></button>
+            <button id="startBtn" v-on:click="start()"><span class="flaticon-music-player-play-button"></span></button>
+            <button id="nextAnimationBtn" v-on:click="switchAnimation(true);"><span
+                    class="flaticon-sketched-right-arrow"></span></button>
+        </div>
+        <div v-if="!playing">
+            <form id="time-setting">
+                <input type="radio" name="picked" value="1" v-model="time" @change="updateSessionDuration" number>
+                <label>One minute</label>
+                <input type="radio" name="picked" value="3" v-model="time" @change="updateSessionDuration" number>
+                <label>Three minutes</label>
+                <input type="radio" name="picked" value="5" v-model="time" @change="updateSessionDuration" number>
+                <label>Five minutes</label>
+            </form>
         </div>
         <div oncontextmenu="return false;" id="canvasDiv"></div>
     </div>

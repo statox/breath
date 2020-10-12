@@ -5,9 +5,12 @@
  * I'll need to investigate more but in the meantime I'll keep it this way
  */
 function StateComputer() {
-    this.sessionDuration = 30 * 1000; // in milliseconds
+    this.sessionDuration = appSettings.time * 60 * 1000; // in milliseconds
     this.playing = false;
 
+    this.inStartPeriod;
+    this.inEndPeriod;
+    this.countDownShowingPeriod = 5 * 1000; // in ms
     this.currentInterval;
     this.remainingMs;
     this.lastMark;
@@ -44,6 +47,11 @@ function StateComputer() {
         this.currentStateIndex = undefined;
         this.sessionStartTime = millis();
         this.playing = true;
+
+        this.inStartPeriod = true;
+        this.inEndPeriod = false;
+        setTimeout(() => (this.inStartPeriod = false), this.countDownShowingPeriod);
+
         this.updateState();
     };
 
@@ -52,8 +60,15 @@ function StateComputer() {
         this.lastMark = millis();
         const timeout = this.states[this.currentStateIndex].duration;
 
-        if (this.remainingMs < 0 && this.currentStateIndex === this.states.length - 1) {
+        if (this.remainingMs < 1000 && this.currentStateIndex === this.states.length - 1) {
             this.playing = false;
+        }
+
+        if (this.remainingMs < 6000 && this.currentStateIndex === this.states.length - 2) {
+            this.inEndPeriod = true;
+            this.endPeriodStartTime = millis();
+            this.endPeriodEndTime = millis() + 6000;
+            setTimeout(() => (this.inEndPeriod = false), 6000);
         }
 
         if (this.playing) {
@@ -83,7 +98,7 @@ function StateComputer() {
 
     this.getCurrentPercentage = () => {
         if (!this.playing) {
-            return -1;
+            return 0;
         }
         const currentlyElapsed = millis() - this.lastMark;
         const currentDuration = this.states[this.currentStateIndex]?.duration;
@@ -112,5 +127,11 @@ function StateComputer() {
             return 'N.A';
         }
         return this.states[this.currentStateIndex].action;
+    };
+
+    this.updateSessionDuration = () => {
+        if (!this.playing) {
+            this.sessionDuration = appSettings.time * 60 * 1000;
+        }
     };
 }

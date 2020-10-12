@@ -31,3 +31,7 @@ function toggleFullscreen() {
     appSettings.fullscreen = !fs;
     fullscreen(!fs);
 }
+
+function updateSessionDuration() {
+    stateComputer.updateSessionDuration();
+}

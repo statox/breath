@@ -6,7 +6,8 @@ let appSettings = {
     percentage: 0,
     countDown: 0,
     playing: false,
-    fullscreen: false
+    fullscreen: false,
+    time: 3
 };
 let animations;
 let animation;
@@ -64,12 +65,11 @@ function start() {
 function switchAnimation(clockwise) {
     if (clockwise) {
         animationsIndex = (animationsIndex + 1) % animations.length;
-        animation = animations[animationsIndex];
     } else {
         animationsIndex = (animationsIndex - 1) % animations.length;
         if (animationsIndex < 0) {
             animationsIndex = animations.length - 1;
         }
-        animation = animations[animationsIndex];
     }
+    animation = animations[animationsIndex];
 }
