@@ -42,6 +42,9 @@ function setup() {
     ];
     animationsIndex = 0;
     animation = animations[animationsIndex];
+
+    document.addEventListener('touchstart', handleTouchStart, false);
+    document.addEventListener('touchmove', handleTouchMove, false);
 }
 
 function draw() {
