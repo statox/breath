@@ -4,7 +4,7 @@ function HalfCirclePolygon(x, y) {
 
     this.draw = (percentage) => {
         backgroundColorChange(percentage);
-
+        fill('rgba(100, 150, 100, 0.4)');
         const x = width / 2;
         const y = height / 2;
 
@@ -30,5 +30,6 @@ function HalfCirclePolygon(x, y) {
         }
         endShape();
         pop();
+        noFill();
     };
 }

@@ -1,43 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>Breath</title>
-        <meta name="description" content="A guided breathing exercise">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <!-- newcss framework, lightweight and elegant css framework -->
-        <!--
+    <title>Breath</title>
+    <meta name="description" content="A guided breathing exercise">
+
+    <!-- newcss framework, lightweight and elegant css framework -->
+    <!--
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/open-fonts@1.1.1/fonts/inter.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
         -->
 
-        <!-- Custom css -->
-        <link rel="stylesheet" href="css/index.css">
+    <!-- Custom css -->
+    <link rel="stylesheet" href="css/index.css">
 
-        <!-- Dependencies -->
-        <!-- <script async defer src="https://api.newcss.net/latest.js"></script> -->
-        <script defer src="https://cdn.jsdelivr.net/npm/vue"></script>
-        <script defer src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
-        <!-- App -->
-        <script defer src="app/sketch.js"></script>
-        <script defer src="app/States.js"></script>
-        <script defer src="app/Interface.js"></script>
-        <script defer src="app/animations/animationHelpers.js"></script>
-        <script defer src="app/animations/SimpleCircle.js"></script>
-        <script defer src="app/animations/HalfCirclePolygon.js"></script>
-        <script defer src="app/animations/PolygonAngle.js"></script>
-    </head>
+    <!-- Dependencies -->
+    <!-- <script async defer src="https://api.newcss.net/latest.js"></script> -->
+    <script defer src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+    <!-- App -->
+    <script defer src="app/sketch.js"></script>
+    <script defer src="app/States.js"></script>
+    <script defer src="app/Interface.js"></script>
+    <script defer src="app/animations/animationHelpers.js"></script>
+    <script defer src="app/animations/WavesCircle.js"></script>
+    <script defer src="app/animations/Waves.js"></script>
+    <script defer src="app/animations/SimpleCircle.js"></script>
+    <script defer src="app/animations/HalfCirclePolygon.js"></script>
+    <script defer src="app/animations/PolygonAngle.js"></script>
+</head>
 
-    <body>
-        <div class="content-container" id="appDiv">
-            <div id="settings" v-if="!fullscreen">
-                <button id="prevAnimationBtn" v-on:click="switchAnimation(false);">Prev. animation</button>
-                <button id="startBtn" v-on:click="start()">Start</button>
-                <button id="nextAnimationBtn" v-on:click="switchAnimation(true);">Next animation</button>
-            </div>
-            <div oncontextmenu="return false;" id="canvasDiv"></div>
+<body>
+    <div class="content-container" id="appDiv">
+        <div id="settings" v-if="!fullscreen">
+            <button id="prevAnimationBtn" v-on:click="switchAnimation(false);">Prev. animation</button>
+            <button id="startBtn" v-on:click="start()">Start</button>
+            <button id="nextAnimationBtn" v-on:click="switchAnimation(true);">Next animation</button>
         </div>
-    </body>
+        <div oncontextmenu="return false;" id="canvasDiv"></div>
+    </div>
+</body>
+
 </html>

@@ -28,7 +28,7 @@ function setup() {
 
     stateComputer = new StateComputer();
 
-    animations = [new SimpleCircle(), new HalfCirclePolygon(), new PolygonAngle()];
+    animations = [new WavesCircle(), new Waves(), new SimpleCircle(), new HalfCirclePolygon(), new PolygonAngle()];
     animationsIndex = 0;
     animation = animations[animationsIndex];
 }

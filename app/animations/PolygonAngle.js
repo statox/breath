@@ -1,10 +1,11 @@
 function PolygonAngle(x, y, maxAngle) {
     this.minL = 20;
     this.maxL = 200;
-    this.maxAngle = PI;
+    this.maxAngle = 2 * PI;
 
     this.draw = (percentage) => {
         backgroundColorChange(percentage);
+        fill('rgba(100, 150, 100, 0.4)');
 
         const x = width / 2;
         const y = height / 2;
@@ -13,7 +14,7 @@ function PolygonAngle(x, y, maxAngle) {
         const angle = map(percentage, 0, 100, 0, this.maxAngle / nbVertexes);
 
         const vertexes = [];
-        const v = new p5.Vector(-10, 0);
+        const v = new p5.Vector(0, -10);
         v.setMag(100);
 
         for (let i = 0; i <= nbVertexes; i++) {
@@ -32,4 +33,5 @@ function PolygonAngle(x, y, maxAngle) {
         endShape();
         pop();
     };
+    noFill();
 }
