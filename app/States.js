@@ -21,22 +21,22 @@ function StateComputer() {
         {
             action: 'inhale',
             text: 'inhale',
-            duration: 3000
+            duration: 4000
         },
         {
             action: 'inhale pause',
             text: 'inhale',
-            duration: 1000
+            duration: 500
         },
         {
             action: 'exhale',
             text: 'exhale',
-            duration: 5000
+            duration: 6000
         },
         {
             action: 'exhale pause',
             text: 'exhale',
-            duration: 1000
+            duration: 200
         }
     ];
 
