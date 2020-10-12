@@ -30,10 +30,10 @@ function handleTouchMove(evt) {
     if (Math.abs(xDiff) > Math.abs(yDiff)) {
         if (xDiff > 0) {
             /* left swipe */
-            switchAnimation(false);
+            swipedLeft();
         } else {
             /* right swipe */
-            switchAnimation(true);
+            swipedRight();
         }
     }
     /* reset values */

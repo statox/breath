@@ -58,6 +58,14 @@ function toggleFullscreen() {
     }
 }
 
+function swipedRight() {
+    switchAnimation(false);
+}
+
+function swipedLeft() {
+    switchAnimation(true);
+}
+
 function updateSessionDuration() {
     stateComputer.updateSessionDuration();
 }
