@@ -4,7 +4,8 @@ function drawAnimationName(name) {
         return;
     }
     fill(155);
-    text(name, width * 0.5, height * 0.9);
+    const w = textWidth(name);
+    text(name, width * 0.5 - w * 0.5, height * 0.9);
     noFill();
 }
 
@@ -39,10 +40,11 @@ function drawCountDown(playing, countDown) {
     }
 
     push();
-    translate((width / 2) * 0.95, height * 0.05);
     textSize(minDim * 0.05);
     stroke(paint);
     fill(paint);
+    const w = textWidth(textTimer);
+    translate(width * 0.5 - w * 0.5, height * 0.05);
     text(textTimer, 0, 0);
     pop();
 }
