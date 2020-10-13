@@ -66,6 +66,7 @@ function swipedLeft() {
     switchAnimation(true);
 }
 
-function updateSessionDuration() {
+function updateSessionDuration(newDuration) {
+    appSettings.time = newDuration;
     stateComputer.updateSessionDuration();
 }

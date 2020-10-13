@@ -17,6 +17,24 @@ body {
 }
 
 #time-setting {
+    text-align: center;
+}
+
+#time-setting button {
+    background: #000000;
     color: white;
     text-align: center;
+    text-decoration: none;
+    font-size: 1rem;
+    border:none;
+}
+
+#time-setting button.selected {
+    background: #222222;
+    border-radius: 20px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1rem;
+    border:none;
 }

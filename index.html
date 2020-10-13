@@ -52,15 +52,16 @@
                 <i class="fas fa-arrow-alt-circle-right"></i>
             </button>
         </div>
-        <div v-if="!playing">
-            <form id="time-setting">
-                <input type="radio" name="picked" value="1" v-model="time" @change="updateSessionDuration" number>
-                <label>One minute</label>
-                <input type="radio" name="picked" value="3" v-model="time" @change="updateSessionDuration" number>
-                <label>Three minutes</label>
-                <input type="radio" name="picked" value="5" v-model="time" @change="updateSessionDuration" number>
-                <label>Five minutes</label>
-            </form>
+        <div id="time-setting" v-if="!playing">
+            <button id="oneMnBtn" v-bind:class="{ 'selected': ( time === 1 )}" v-on:click="updateSessionDuration(1)">
+                One minute
+            </button>
+            <button id="ThreeMnBtn" v-bind:class="{ 'selected': time === 3}" v-on:click="updateSessionDuration(3)">
+                Three minutes
+            </button>
+            <button id="FiveMnBtn" v-bind:class="{ 'selected': ( time === 5 )}" v-on:click="updateSessionDuration(5)">
+                Five minutes
+            </button>
         </div>
         <div oncontextmenu="return false;" id="canvasDiv"></div>
     </div>
