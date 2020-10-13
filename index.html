@@ -41,25 +41,32 @@
 
 <body>
     <div class="content-container" id="appDiv">
-        <div id="settings" v-if="!fullscreen">
-            <button id="prevAnimationBtn" v-on:click="switchAnimation(false);">
-                <i class="fas fa-arrow-alt-circle-left"></i>
-            </button>
-            <button id="startBtn" v-on:click="start()">
-                <i class="fas fa-play"></i>
-            </button>
-            <button id="nextAnimationBtn" v-on:click="switchAnimation(true);">
-                <i class="fas fa-arrow-alt-circle-right"></i>
-            </button>
+        <div id="settings">
+            <span id="fullscreenSpan">
+                <button id="fullscreenBtn" v-on:click="toggleFullscreen()">
+                    <i class="fas fa-expand"></i>
+                </button>
+            </span>
+            <span>
+                <button id="prevAnimationBtn" v-on:click="switchAnimation(false);">
+                    <i class="fas fa-arrow-alt-circle-left"></i>
+                </button>
+                <button id="startBtn" v-on:click="start()">
+                    <i class="fas fa-play"></i>
+                </button>
+                <button id="nextAnimationBtn" v-on:click="switchAnimation(true);">
+                    <i class="fas fa-arrow-alt-circle-right"></i>
+                </button>
+            </span>
         </div>
         <div id="time-setting" v-if="!playing">
-            <button id="oneMnBtn" v-bind:class="{ 'selected': ( time === 1 )}" v-on:click="updateSessionDuration(1)">
+            <button id="oneMnBtn" v-bind:class="{ 'selected': time === 1}" v-on:click="updateSessionDuration(1)">
                 One minute
             </button>
             <button id="ThreeMnBtn" v-bind:class="{ 'selected': time === 3}" v-on:click="updateSessionDuration(3)">
                 Three minutes
             </button>
-            <button id="FiveMnBtn" v-bind:class="{ 'selected': ( time === 5 )}" v-on:click="updateSessionDuration(5)">
+            <button id="FiveMnBtn" v-bind:class="{ 'selected': time === 5}" v-on:click="updateSessionDuration(5)">
                 Five minutes
             </button>
         </div>

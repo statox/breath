@@ -15,11 +15,6 @@ function keyPressed() {
 
 function customResizeCanvas() {
     resizeCanvas(windowWidth * 0.98, windowHeight * 0.98);
-
-    const minDimension = Math.min(windowHeight, windowWidth);
-    const btnDimension = minDimension * 0.02;
-    fullscreenButton.size(btnDimension, btnDimension);
-    fullscreenButton.position(2 * btnDimension, 2 * btnDimension);
 }
 
 function windowResized() {
