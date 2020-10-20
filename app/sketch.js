@@ -26,12 +26,13 @@ function setup() {
 
     animations = [
         new CosinusoideFlower(),
-        new Sinusoide1(),
-        new CirclesCircles(),
         new WavesCircle(),
-        new Waves(),
+        new Sinusoide1(),
+        new Rosace1(),
         new Whirlpool(),
         new TriangleWheel(),
+        new Rosace2(),
+        new Waves(),
         new Pulse(),
         new SinusoideFlower(),
         new Droplet(),

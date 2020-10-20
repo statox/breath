@@ -20,7 +20,7 @@ function AlphaCircles() {
         translate(width / 2, height / 2);
         for (let layer = this.nbLayers; layer >= 0; layer--) {
             const baseMag = parseInt(map(layer, 0, 10, this.minR, this.maxR));
-            const alpha = map(layer, 0, this.nbLayers, 0.5, 0);
+            const alpha = map(layer, 0, this.nbLayers, 0.1, 0);
             fill(`rgba(100, 100, 100, ${alpha})`);
             stroke(`rgba(100, 100, 100, ${alpha})`);
 

@@ -1,4 +1,4 @@
-function CirclesCircles() {
+function Rosace1() {
     this.name = 'Rosace';
     this.minR;
     this.maxR;
