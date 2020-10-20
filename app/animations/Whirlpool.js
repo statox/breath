@@ -18,8 +18,7 @@ function Whirlpool() {
         }
 
         background(0);
-        strokeWeight(1);
-        stroke(200);
+        stroke(150);
 
         push();
         translate(width / 2, height / 2);

@@ -1,5 +1,5 @@
-function SinusoideFlower() {
-    this.name = 'Sinusoidal Flower II';
+function CosinusoideFlower() {
+    this.name = 'Sinusoidal Flower';
     this.minX;
     this.maxX;
     this.nbX;
@@ -20,11 +20,11 @@ function SinusoideFlower() {
         this.nbX = 100;
 
         background(0);
+        stroke(200);
         push();
         translate(width / 2, height / 2);
         const n = noise(frameCount * 0.01);
         const yNoise = map(n, 0, 1, -25, 25);
-        let maxDist = 0;
         for (let i = 0; i < this.points.length; i++) {
             const v = this.points[i];
             rotate((2 * PI) / this.nbPoints);
@@ -33,19 +33,15 @@ function SinusoideFlower() {
             for (let x = 0; x < this.nbX; x++) {
                 const screenX = map(x, 0, this.nbX, this.minScreenX, this.maxScreenX);
 
-                const frequency = map(percentage, 0, 100, 0.03, 0.15);
+                const frequency = map(percentage, 0, 100, 0.01, 0.03);
                 const amplitude = map(x, 0, this.nbX, 0.5, 10);
                 const normX = map(x, 0, this.nbX, 0, 1);
-                const cosX = Math.sin(frequency * x) * amplitude;
+                const cosX = Math.cos(frequency * x) * amplitude;
                 const screenY = map(cosX, 0, 1, -10, 10) + yNoise;
 
                 const paint = map(x, 0, this.nbX, 200, 100);
                 stroke(paint);
                 vertex(screenX, screenY);
-                let d = Math.sqrt(screenX ** 2 + screenY ** 2);
-                if (d > maxDist) {
-                    maxDist = d;
-                }
             }
             endShape();
 
@@ -56,21 +52,15 @@ function SinusoideFlower() {
                 const frequency = map(percentage, 0, 100, 0.01, 0.03);
                 const amplitude = map(x, 0, this.nbX, 0.5, 10);
                 const normX = map(x, 0, this.nbX, 0, 1);
-                const cosX = -Math.sin(frequency * x) * amplitude;
+                const cosX = -Math.cos(frequency * x) * amplitude;
                 const screenY = map(cosX, 0, 1, -10, 10) + yNoise;
 
                 const paint = map(x, 0, this.nbX, 200, 100);
                 stroke(paint);
                 vertex(screenX, screenY);
-                let d = Math.sqrt(screenX ** 2 + screenY ** 2);
-                if (d > maxDist) {
-                    maxDist = d;
-                }
             }
             endShape();
         }
-        stroke(150);
-        circle(0, 0, this.maxScreenX * 2);
         pop();
     };
 }

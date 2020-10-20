@@ -1,6 +1,8 @@
 function AlphaCircles() {
-    this.name = 'WIP - Alpha Circles';
+    this.name = 'Alpha Circles';
     this.nbPoints = 125;
+    this.maxLayer = 30;
+    this.minLayer = 2;
     this.points = [new p5.Vector(0, -1)];
     for (let i = 1; i < this.nbPoints; i++) {
         const v = this.points[i - 1].copy().rotate((2 * PI) / this.nbPoints);
@@ -9,7 +11,7 @@ function AlphaCircles() {
     this.draw = (percentage) => {
         this.minR = (Math.min(width, height) * 0.05) / 2;
         this.maxR = (Math.min(width, height) * 0.4) / 2;
-        this.nbLayers = 20;
+        this.nbLayers = map(percentage, 0, 100, this.minLayer, this.maxLayer);
 
         noFill();
         strokeWeight(1);

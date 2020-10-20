@@ -25,7 +25,7 @@ function setup() {
     stateComputer = new StateComputer();
 
     animations = [
-        new SinusoideFlower(),
+        new CosinusoideFlower(),
         new Sinusoide1(),
         new CirclesCircles(),
         new WavesCircle(),
@@ -33,14 +33,15 @@ function setup() {
         new Whirlpool(),
         new TriangleWheel(),
         new Pulse(),
+        new SinusoideFlower(),
         new Droplet(),
         new AlphaCircles(),
+        new SimpleCircleAlpha()
+        // new SimpleCircle(),
         // new NoiseLine(),
         // new NoiseMap(),
-        new SimpleCircleAlpha(),
-        // new SimpleCircle(),
-        new HalfCirclePolygon(),
-        new PolygonAngle()
+        // new HalfCirclePolygon(),
+        // new PolygonAngle()
     ];
     animationsIndex = 0;
     animation = animations[animationsIndex];
