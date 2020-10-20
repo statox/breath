@@ -32,9 +32,13 @@ function setup() {
         new Waves(),
         new Whirlpool(),
         new TriangleWheel(),
+        new Pulse(),
         new Droplet(),
+        new AlphaCircles(),
+        // new NoiseLine(),
+        // new NoiseMap(),
         new SimpleCircleAlpha(),
-        new SimpleCircle(),
+        // new SimpleCircle(),
         new HalfCirclePolygon(),
         new PolygonAngle()
     ];
