@@ -5,7 +5,8 @@ let appSettings = {
     percentage: 0,
     countDown: 0,
     playing: false,
-    time: 3
+    time: 3,
+    smallScreen: true
 };
 let animations;
 let animation;

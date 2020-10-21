@@ -19,6 +19,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script>
     <!-- App -->
+    <script defer src="app/MediaQueries.js"></script>
     <script defer src="app/sketch.js"></script>
     <script defer src="app/States.js"></script>
     <script defer src="app/Interface.js"></script>
@@ -50,7 +51,7 @@
 <body>
     <div class="content-container" id="appDiv">
         <div id="settings">
-            <span id="fullscreenSpan">
+            <span id="fullscreenSpan" v-if="!smallScreen">
                 <button id="fullscreenBtn" v-on:click="toggleFullscreen()">
                     <i class="fas fa-expand"></i>
                 </button>
@@ -69,13 +70,16 @@
         </div>
         <div id="time-setting" v-if="!playing">
             <button id="oneMnBtn" v-bind:class="{ 'selected': time === 1}" v-on:click="updateSessionDuration(1)">
-                One minute
+                <i v-if="smallScreen">1 mn</i>
+                <i v-else>One minute</i>
             </button>
             <button id="ThreeMnBtn" v-bind:class="{ 'selected': time === 3}" v-on:click="updateSessionDuration(3)">
-                Three minutes
+                <i v-if="smallScreen">3 mn</i>
+                <i v-else>Three minute</i>
             </button>
             <button id="FiveMnBtn" v-bind:class="{ 'selected': time === 5}" v-on:click="updateSessionDuration(5)">
-                Five minutes
+                <i v-if="smallScreen">5 mn</i>
+                <i v-else>Five minute</i>
             </button>
         </div>
         <div oncontextmenu="return false;" id="canvasDiv"></div>
