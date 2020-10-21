@@ -33,6 +33,7 @@ function setup() {
         new TriangleWheel(),
         new Rosace2(),
         new Waves(),
+        new FractalTree(),
         new Pulse(),
         new SinusoideFlower(),
         new Droplet(),
