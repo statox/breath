@@ -19,7 +19,6 @@ body {
 #fullscreenSpan {
     position: absolute;
     left: 1rem;
-    z-index: -1;
 }
 
 #time-setting {

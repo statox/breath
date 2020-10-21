@@ -1,3 +1,19 @@
+function drawInstruction() {
+    const {showInstruction, endShowInstructionPeriod} = stateComputer;
+    if (endShowInstructionPeriod < millis()) {
+        return;
+    }
+
+    const action = appSettings.text;
+    const prevTextSize = textSize();
+    textSize(textSize() * 2);
+    const w = textWidth(action);
+    fill(100);
+    text(action, width * 0.5 - w * 0.5, height * 0.1);
+    noFill();
+    textSize(prevTextSize);
+}
+
 function drawAnimationName(name) {
     const {playing} = stateComputer;
     if (playing) {

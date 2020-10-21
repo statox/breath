@@ -52,7 +52,8 @@ function setup() {
 }
 
 function draw() {
-    const {action, percentage, countDown, playing} = stateComputer.getUpdate();
+    const {text, action, percentage, countDown, playing} = stateComputer.getUpdate();
+    appSettings.text = text;
     appSettings.action = action;
     appSettings.percentage = percentage;
     appSettings.countDown = countDown;
@@ -62,6 +63,7 @@ function draw() {
     push();
     animation.draw(percentage);
     pop();
+    drawInstruction();
     drawCountDown(playing, countDown);
     drawAnimationName(animation.name);
 }

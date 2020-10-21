@@ -10,6 +10,8 @@ function StateComputer() {
 
     this.inStartPeriod;
     this.inEndPeriod;
+    this.showInstruction;
+    this.endShowInstructionPeriod;
     this.countDownShowingPeriod = 5 * 1000; // in ms
     this.currentInterval;
     this.remainingMs;
@@ -20,22 +22,22 @@ function StateComputer() {
         // durations are in milliseconds
         {
             action: 'inhale',
-            text: 'inhale',
+            text: 'Breath in',
             duration: 4000
         },
         {
             action: 'inhale pause',
-            text: 'inhale',
+            text: 'Breath in',
             duration: 500
         },
         {
             action: 'exhale',
-            text: 'exhale',
+            text: 'Breath out',
             duration: 6000
         },
         {
             action: 'exhale pause',
-            text: 'exhale',
+            text: 'Breath out',
             duration: 200
         }
     ];
@@ -51,6 +53,11 @@ function StateComputer() {
         this.inStartPeriod = true;
         this.inEndPeriod = false;
         setTimeout(() => (this.inStartPeriod = false), this.countDownShowingPeriod);
+
+        this.showInstruction = true;
+        const showInstructionTime = this.states.map((s) => s.duration).reduce((a, b) => a + b);
+        this.endShowInstructionPeriod = millis() + showInstructionTime + this.states[0].duration / 2;
+        setTimeout(() => (this.showInstruction = false), showInstructionTime);
 
         this.updateState();
     };
@@ -78,6 +85,7 @@ function StateComputer() {
 
     this.getUpdate = () => {
         return {
+            text: this.getCurrentActionText(),
             action: this.getCurrentAction(),
             percentage: this.getCurrentPercentage(),
             countDown: this.getRemainingTime(),
@@ -127,6 +135,13 @@ function StateComputer() {
             return 'N.A';
         }
         return this.states[this.currentStateIndex].action;
+    };
+
+    this.getCurrentActionText = () => {
+        if (!this.playing) {
+            return;
+        }
+        return this.states[this.currentStateIndex].text;
     };
 
     this.updateSessionDuration = () => {
