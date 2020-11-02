@@ -26,6 +26,7 @@ function setup() {
     stateComputer = new StateComputer();
 
     animations = [
+        new CirclePacking2(),
         new CosinusoideFlower(),
         new WavesCircle(),
         new Sinusoide1(),
@@ -40,6 +41,7 @@ function setup() {
         new Droplet(),
         new AlphaCircles(),
         new SimpleCircleAlpha()
+        // new CirclePacking1(),
         // new SimpleCircle(),
         // new NoiseLine(),
         // new NoiseMap(),
@@ -63,7 +65,7 @@ function draw() {
 
     background(0);
     push();
-    animation.draw(percentage);
+    animation.draw(percentage, {action});
     pop();
     drawInstruction();
     drawCountDown(playing, countDown);
