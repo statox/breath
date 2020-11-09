@@ -26,7 +26,6 @@ function setup() {
     stateComputer = new StateComputer();
 
     animations = [
-        new CirclePacking2(),
         new CosinusoideFlower(),
         new WavesCircle(),
         new Sinusoide1(),
@@ -40,7 +39,8 @@ function setup() {
         new SinusoideFlower(),
         new Droplet(),
         new AlphaCircles(),
-        new SimpleCircleAlpha()
+        new SimpleCircleAlpha(),
+        new CirclePacking2()
         // new CirclePacking1(),
         // new SimpleCircle(),
         // new NoiseLine(),
