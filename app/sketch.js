@@ -35,6 +35,7 @@ function setup() {
         new Rosace2(),
         new Waves(),
         new FractalTree(),
+        new ParabolicCurves(),
         new Pulse(),
         new SinusoideFlower(),
         new Droplet(),
